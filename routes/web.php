@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+\Illuminate\Support\Facades\Auth::loginUsingId(1);
+Route::get('documents/{document}', [\App\Http\Controllers\DocumentsController::class, 'show']);
 Route::get('/', function () {
     return view('welcome');
 
-    Route::resource('subscriptions', 'SubscriptionController');
+    Route::resource('subscriptions', SubscriptionController::class);
+
+
 });
